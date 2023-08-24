@@ -1,0 +1,67 @@
+Basic Problems:
+
+1.Maximum Depth of Binary Tree:
+Find the maximum depth (height) of a binary tree.
+
+2.Binary Tree Traversal:
+Implement in-order, pre-order, and post-order traversal of a binary tree.
+
+3.Symmetric Tree:
+Check if a binary tree is symmetric (its left and right subtrees are mirror images).
+
+4.Level Order Traversal:
+Print the binary tree level by level, from top to bottom.
+
+5.Invert Binary Tree:
+Swap the left and right subtrees of a binary tree.
+
+Intermediate Problems:
+
+1.Path Sum:
+Determine if there exists a path from the root to a leaf that sums up to a given value.
+
+2.Lowest Common Ancestor:
+Find the lowest common ancestor of two nodes in a binary tree.
+
+3.Construct Binary Tree from Inorder and Postorder Traversal:
+Given inorder and postorder traversal sequences, reconstruct the binary tree.
+
+4.Sum of Left Leaves:
+Calculate the sum of all left leaves in a binary tree.
+
+5.Diameter of Binary Tree:
+Find the diameter (longest path) between any two nodes in a binary tree.
+
+Advanced Problems:
+
+1.Serialize and Deserialize Binary Tree:
+Implement functions to serialize and deserialize a binary tree.
+
+2.Vertical Order Traversal:
+Print the binary tree nodes in vertical order, from left to right.
+
+3.Binary Tree Zigzag Level Order Traversal:
+Print the binary tree nodes in a zigzag pattern level by level.
+
+4.Convert Binary Search Tree to Sorted Doubly Linked List:
+Convert a binary search tree to a sorted doubly linked list.
+
+5.Count Complete Tree Nodes:
+Count the number of nodes in a complete binary tree.
+
+6.Recover Binary Search Tree:
+Recover a swapped pair of elements in a binary search tree.
+
+7.Kth Smallest Element in a BST:
+Find the kth smallest element in a binary search tree.
+
+8.House Robber III:
+Given a binary tree representing house values, find the maximum amount that can be robbed without adjacent houses being robbed.
+
+9.Closest Binary Search Tree Value:
+Find the closest value to a given target value in a binary search tree.
+
+10.Unique Binary Search Trees II:
+Generate all unique binary search trees that can be formed with values 1 to n.
+
+
