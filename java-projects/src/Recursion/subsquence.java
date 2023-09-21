@@ -39,3 +39,6 @@ public class Main
 		recursion(0,arr,al);
 	}
 }
+
+Time Complxity : O(2^n*n)
+Space Complxity : O(N )
