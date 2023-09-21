@@ -1,3 +1,35 @@
+// Representation of undirected graph
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int n = 3, m = 3;
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i <= n; i++) {
+            adj.add(new ArrayList<Integer>());
+        }
+
+        adj.get(1).add(2);
+        adj.get(2).add(1);
+
+        adj.get(2).add(3);
+        adj.get(3).add(2);
+
+        adj.get(3).add(1);
+        adj.get(1).add(3);
+
+        for (int i = 1; i <= n; i++) { // Start i from 1
+            System.out.print("Adjacency list of node " + i + ": ");
+            for (int j = 0; j < adj.get(i).size(); j++) {
+                System.out.print(adj.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
 /******************************************************************************
 adjcncy List of a graph
 *******************************************************************************/
