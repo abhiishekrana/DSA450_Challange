@@ -1,0 +1,28 @@
+Leetcode top 150
+1. Array/String
+2. Two Pointer
+3.Sliding window
+4.Matrix
+5.HashMap
+6.Intervals
+7.Stacks
+8.LinkedList
+9.Binary Tree General
+10.Binary Tree BFS
+11.Binary Tree BFS
+12.General Graph
+13.General BFS 
+14.Trie
+15.Backtraking
+16.Divide and Conquor
+17.Kadanes Algorithm
+18.Binary Search
+19.Heap
+20.Bit Manupulation
+21.Math
+22.Dp
+23.Multidimensional DP
+
+Basic Clear
+----------------------------------------------------------------------------
+Go to advance it which topic feels 
