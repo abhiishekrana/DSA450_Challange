@@ -1,18 +1,5 @@
 // 1.Merge Sorted Array
-
-// Example 1:
-
-// Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-// Output: [1,2,2,3,5,6]
-// Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
-// The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
-// Example 2:
-
-// Input: nums1 = [1], m = 1, nums2 = [], n = 0
-// Output: [1]
-// Explanation: The arrays we are merging are [1] and [].
-// The result of the merge is [1].
-
+// https://leetcode.com/problems/merge-sorted-array
 Code:
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -34,5 +21,87 @@ class Solution {
             mergeptr--;
             p2--;
         }
+    }
+}
+
+//2. Remove Element
+https://leetcode.com/problems/remove-element
+
+Code :
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int j = 0;
+        int cnt=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==val){
+                continue;
+            }
+            nums[j++]=nums[i];
+            cnt++;
+        }
+        return cnt;
+    }
+}
+
+// 3.Remove Duplicates from Sorted Array
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array
+
+Code :
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length<=1){
+            return nums.length;
+        }
+        int j=0;
+       for(int i=0;i<nums.length-1;i++){
+           if(nums[i]!=nums[i+1]){
+               nums[j++]=nums[i];
+           }
+       }
+       nums[j++] = nums[nums.length-1];//this element is always unique.
+       return j;
+
+    }
+}
+
+// 4.Remove Duplicates from Sorted Array II
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
+
+Code : 
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int n = nums.length;
+        if(n<=2)return n;
+        int count = 1;
+        int j = 1; // index start 1 as it is always included
+        for(int i = 1;i<n;i++){//start from 1 is if have match atmost 2;
+            if(nums[i] == nums[i-1]){
+                count++;
+            }else{
+                count=1;
+            }
+            if(count<=2){
+                nums[j++] = nums[i];
+            }
+        }
+        return j;
+    }
+}
+
+// 5. Majority Element
+// https://leetcode.com/problems/majority-element
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int i:nums){
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
+        int threshold = (nums.length/2);
+        for(int k : map.keySet()){
+            if(map.get(k)>threshold){
+                return k;
+            }
+        }
+        return -1;
     }
 }
