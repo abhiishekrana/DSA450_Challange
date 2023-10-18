@@ -105,3 +105,32 @@ class Solution {
         return -1;
     }
 }
+
+// 6.Rotate Array
+// https://practice.geeksforgeeks.org/problems/rotate-array-by-n-elements-1587115621/1
+
+Code :
+class Solution
+{
+    //Function to rotate an array by d elements in counter-clockwise direction. 
+    static void rotateArr(int arr[], int k, int n)
+    {
+        int[] temp = new int[k];
+        if(k>=n){   //This steps tells us if value of K>n
+            k=k%n;
+        }
+        for (int i = 0; i < k; i++) {
+            temp[i] = arr[i];
+        }
+        
+        // Shift the remaining elements to the left by k positions
+        for (int i = k; i < n; i++) {
+            arr[i - k] = arr[i];
+        }
+        
+        // Copy the elements from the temp array back to the original array
+        for (int i = 0; i < k; i++) {
+            arr[n - k + i] = temp[i];
+        }
+    }
+}
