@@ -134,3 +134,26 @@ class Solution
         }
     }
 }
+
+// 7. all the (buy,sell) interval
+// https://practice.geeksforgeeks.org/problems/stock-buy-and-sell-1587115621/1
+
+Code :
+class Solution{
+    //Function to find the days of buying and selling stock for max profit.
+    ArrayList<ArrayList<Integer> > stockBuySell(int arr[], int n) {
+        // code here
+        ArrayList<ArrayList<Integer> > list = new ArrayList<>();
+        ArrayList<Integer> sublist = new ArrayList<>();
+        for(int i=0;i<n-1;i++){
+            sublist = new ArrayList<>();
+            if(arr[i]<arr[i+1]){
+                sublist.add(i);
+                sublist.add(i+1);
+                list.add(sublist);
+            }
+        }
+        return list;
+        
+    }
+}
