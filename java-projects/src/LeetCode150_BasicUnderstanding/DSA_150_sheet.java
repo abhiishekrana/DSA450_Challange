@@ -174,3 +174,142 @@ class Solution {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//25.Valid Palindrom Question
+// https://leetcode.com/problems/valid-palindrome
+Code:
+// Time complexity: O(n)
+// Space complexity: O(n)
+class Solution {
+    public boolean isPalindrome(String s) {
+       String str = s.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
+       int i =0,j=str.length()-1;
+       while(i<j){
+           if(str.charAt(i)!=str.charAt(j)){
+               return false;
+           }
+           i++;
+           j--;
+       }
+       return true;
+    }
+}
+
+//26.isSubsequence
+// https://leetcode.com/problems/is-subsequence
+Code :
+// TC:O(N);
+// SC:o(1);
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int i = s.length()-1;
+        int j = t.length()-1;
+        while(i>=0 && j>=0){
+            if(s.charAt(i)==t.charAt(j)){
+                i--;
+                j--;
+            }
+            else{
+                j--;
+            }
+        }
+        return i==-1?true:false;
+    }
+}
+
+//27. Two Sum II - Input Array Is Sorted
+// https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
+// Time complexity: O(n)
+// Space complexity: O(1)
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+         int n = numbers.length;
+         int i = 0;
+         int j = numbers.length-1;
+         int[] arr = new int[2];
+         while(i<=j){
+             if(numbers[i]+numbers[j]==target){
+                arr[0] = i + 1;  
+                arr[1] = j + 1;
+                 return arr;
+             }else if(numbers[i]+numbers[j]>target){
+                 j--;
+             }else{
+                 i++;
+             }
+         }
+         return arr;
+    }
+}
+
+//28. Container With Most Water
+// https://leetcode.com/problems/container-with-most-water/
+// Time complexity: O(n)
+// Space complexity: O(1)
+class Solution {
+    public int maxArea(int[] height) {
+        int i = 0;
+        int j = height.length-1;
+        int maxArea = 0;
+        while(i<j){
+            int h = Math.min(height[i],height[j]);
+            int w = j-i;
+            int area =h*w;
+            maxArea = Math.max(area,maxArea);
+            if(height[i]<=height[j]){
+                i++;
+            }else{
+                j--;
+            }
+        }
+       return maxArea;
+
+    }
+}
+
+//29. 3Sum
+// https://leetcode.com/problems/3sum/
+// Time complexity: O(n^2)
+// Space complexity: O(n)
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Set<List<Integer>> set = new HashSet<>();
+        Arrays.sort(nums);//sort because we have change pointers position
+        if(nums.length<3)return new ArrayList<>(set);
+        for(int k=nums.length-1;k>=2;k--){
+            int i = 0;
+            int j = k-1;
+            while(i<j){
+                int  currSum = nums[i]+nums[j]+nums[k];
+                if(currSum<0){
+                    i++;
+                }else if(currSum>0){
+                    j--;
+                }
+                else{
+                    List<Integer> list = new ArrayList<>();
+                    list.add(nums[i]);
+                    list.add(nums[j]);
+                    list.add(nums[k]);
+                    set.add(list);
+                    i++;
+                    j--;
+                }
+            }
+        }
+        List<List<Integer>> ans = new ArrayList<>(set);
+        return ans;
+
+    }
+}
