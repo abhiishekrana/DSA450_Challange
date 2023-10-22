@@ -313,3 +313,201 @@ class Solution {
 
     }
 }
+
+//30.  Minimum Size Subarray Sum
+// https://leetcode.com/problems/minimum-size-subarray-sum
+// TC : O(N)
+// SC : O(N)
+class Solution {
+    
+    public int minSubArrayLen(int target, int[] nums) {
+       int left = 0;
+       int right = 0;
+       int minLen = Integer.MAX_VALUE;
+       int sum = 0;
+       while(right<nums.length){
+           sum+=nums[right];
+           while(sum>=target){
+               minLen = Math.min(minLen,right-left+1);
+               sum = sum-nums[left];
+               left++;
+           }
+           right++;
+       }
+       return minLen == Integer.MAX_VALUE ? 0 : minLen;
+    }
+}
+
+//31
+// https://leetcode.com/problems/longest-substring-without-repeating-characters/
+// TC:O(N)
+// SC:O(N)
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int left = 0;
+       int right = 0;
+       int maxLen = 0;
+       Set<Character> characterSet = new HashSet<>();
+       while(right<s.length()){
+           char c=s.charAt(right);
+           if(!characterSet.contains(c)){
+               characterSet.add(c);
+               maxLen = Math.max(maxLen,right-left+1);
+               right++;
+           }else{
+               characterSet.remove(s.charAt(left));
+               left++;
+           }
+       }
+       System.out.print(characterSet);
+       return maxLen;
+    }
+}
+
+//Hard cover later
+// 32
+// 33
+
+//34 https://leetcode.com/problems/valid-sudoku
+// Time complexity: O(1) (constant time), Space complexity: O(1) (constant space).
+class Solution {
+    public boolean notInRow(char[][] arr,int row,int col){
+        HashSet<Character> rowSet = new HashSet<>();
+        for(int i=0;i<row;i++){
+            if(rowSet.contains(arr[row][i]))return false;
+            if(arr[row][i]!='.'){
+                rowSet.add(arr[row][i]);
+            }
+            
+        }
+        return true;
+    }
+
+    public boolean notInCol(char[][] arr,int row,int col){
+        HashSet<Character> colSet = new HashSet<>();
+        for(int i=0;i<col;i++){
+            if(colSet.contains(arr[i][col]))return false;
+            if(arr[i][col]!='.'){
+                colSet.add(arr[i][col]);
+            }
+            
+        }
+        return true;
+    }
+
+    public boolean notInBox(char[][] arr,int startrow,int startcol){
+        HashSet<Character> boxSet = new HashSet<>();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                char curr = arr[i + startrow][j + startcol];
+                if (boxSet.contains(curr)) {
+                    return false;
+                }
+                if (curr != '.') {
+                    boxSet.add(curr);
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isValid(char[][] arr, int row,int col){
+        return notInRow(arr,row,col) && notInCol(arr,row,col)&&notInBox(arr,row-row%3,col-col%3);
+    }
+
+    public boolean isValidConfig(char[][] arr,int rows,int cols){
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<cols;j++){
+                if(!isValid(arr,i,j))return false;
+            }
+            
+        }
+        return true;
+    }
+
+    public boolean isValidSudoku(char[][] board) {
+        int rows = board.length;
+        int cols = board[0].length;
+        boolean ans = isValidConfig(board,rows,cols);
+        return ans;
+    }
+}
+
+// 35
+// https://leetcode.com/problems/spiral-matrix/
+// TC=O(N)
+// SC:O(N)
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int left = 0;
+        int right = matrix[0].length-1;
+        int top = 0;
+        int bottom = matrix.length-1;
+        List<Integer> list = new ArrayList<>();
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return list;
+        }
+        while(left<=right && top<=bottom){
+        //left to right
+        for(int i = left;i<=right;i++){
+            list.add(matrix[top][i]);
+        }
+        top++;
+        // top to bottom
+        for (int i = top; i <= bottom; i++) {
+            list.add(matrix[i][right]);
+        }
+        right--;
+        //right to left
+         if (top <= bottom) {
+        for(int i=right;i>=left;i--){
+            list.add(matrix[bottom][i]);
+        }
+        bottom--;
+         }
+        //bottom to top
+        if(left<=right){
+        for(int i=bottom;i>=top;i--){
+            list.add(matrix[i][left]);
+        }
+        left++;
+        }
+        }
+        return list;
+
+    }
+    
+}
+
+// 36
+// https://leetcode.com/problems/rotate-image
+TC:o(n*n);
+SC:o(1);
+class Solution {
+    //Transpose of matrix
+    public void rotate(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        for(int i=0;i<rows;i++){
+            for(int j=i;j<cols;j++){
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i]=temp;
+            }
+        }
+        //reverse each row
+        for(int i=0;i<rows;i++){
+            int left = 0;
+            int right = cols-1;
+            while(left<right){
+                int temp = matrix[i][left];
+                matrix[i][left] = matrix[i][right];
+                matrix[i][right] = temp;
+                left++;
+                right--;
+
+            }
+        }
+
+    }
+}
