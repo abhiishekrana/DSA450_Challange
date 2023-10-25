@@ -511,3 +511,305 @@ class Solution {
 
     }
 }
+
+//37
+// https://leetcode.com/problems/set-matrix-zeroes/
+// TC:O(M*N)
+// SC:o(1)
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+        boolean[] rowarr = new boolean[row];
+        boolean[] colarr = new boolean[col];
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                if(matrix[i][j]==0){
+                   rowarr[i]=true;
+                    colarr[j]=true;
+                }
+            }
+        }
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                if(rowarr[i] || colarr[j]){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+    }
+}
+
+// 38 Game of life
+
+//39
+// https://leetcode.com/problems/ransom-note
+// TC : O(N)
+// SC : O(N)
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(Character c : magazine.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        for(int i=0;i<ransomNote.length();i++){
+            char c = ransomNote.charAt(i);
+            if(map.containsKey(c) &&map.get(c)>0){
+                map.put(c,map.getOrDefault(c,0)-1);
+            }else{
+                return false;
+            }
+            
+        }
+        return true;
+    }
+}
+
+//40
+//Isomorphic String
+// https://leetcode.com/problems/isomorphic-strings/
+// Logic : map both the map charcater and check if the both charcter and not qual and one map element visted earlier
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if(s.length()!=t.length())return false;
+        HashMap<Character,Character> map1 = new HashMap<>();
+        HashMap<Character,Boolean> map2 = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            char ch1 = s.charAt(i);
+            char ch2 = t.charAt(i);
+            if(map1.containsKey(ch1)){
+                if(map1.get(ch1)!=ch2){
+                    return false;
+                }
+            }
+            else{
+                if(map2.containsKey(ch2)==true)return false;
+                else{
+                    map1.put(ch1,ch2);
+                    map2.put(ch2,true);
+                }
+            }
+        }
+        return true;
+    }
+}
+
+//41
+// https://leetcode.com/problems/word-pattern
+//TC:O(N)
+//SC:O(N)
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+        String[] word = s.split(" ");
+        if(pattern.length()!=word.length)return false;
+        HashMap<Character,String> map1 = new HashMap<>();
+        HashMap<String,Boolean> map2 = new HashMap<>();
+        for(int i=0;i<pattern.length();i++){
+            char ch = pattern.charAt(i);
+            if(map1.containsKey(ch)==false){
+                if(map2.containsKey(word[i])==true){
+                    return false;
+                }else{
+                    map1.put(ch,word[i]);
+                    map2.put(word[i],true);
+                }
+            }
+            else{
+                String value = map1.get(ch);
+                    if(value.equals(word[i])==false)return false;
+            }
+        }
+        return true;
+    }
+}
+
+//42
+// https://leetcode.com/problems/valid-anagram/
+// TC:O(N)
+// SC:O(N)
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length())return false;
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(Character c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        for(int i=0;i<t.length();i++){
+            char c = t.charAt(i);
+            if(map.containsKey(c) &&map.get(c)>0){
+                map.put(c,map.getOrDefault(c,0)-1);
+            }else{
+                return false;
+            }
+            
+        }
+        return true;
+    }
+}
+
+//43
+// https://leetcode.com/problems/group-anagrams
+// TC:O(N)
+// SC:O(N)
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> groupAnagram = new ArrayList<>();
+        HashMap<String,List<String>> map = new HashMap<>();
+        for(String s: strs){
+            char[] character = s.toCharArray();
+            Arrays.sort(character);
+            String sorted = new String(character);
+            if(!map.containsKey(sorted)){
+                map.put(sorted,new ArrayList<>());
+            }
+            map.get(sorted).add(s);
+        }
+        groupAnagram.addAll(map.values());
+        return groupAnagram;
+    }
+}
+
+//44
+// https://leetcode.com/problems/two-sum/
+// O(N)
+// O(N)
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        
+        for(int i=0;i<nums.length;i++){
+            int compliment = target-nums[i];
+            if(map.containsKey(compliment)){
+                return new int[] {map.get(compliment),i};
+            }
+            map.put(nums[i],i);
+        }
+        return new int[]{-1,-1};
+    }
+}
+
+// 45
+// https://leetcode.com/problems/happy-number/
+//  O(log(n)) 
+//   O(log(n)) 
+class Solution {
+    public boolean isHappy(int n) {
+        HashSet<Integer> seen = new HashSet<>();
+        int rem=0;
+        while(n!=1){
+            int curr = n;
+            int sum = 0;
+            while(curr!=0){
+                 rem = curr%10;
+                sum+=rem*rem;
+                curr=curr/10;
+            }
+            if(seen.contains(sum))return false;
+            else{
+                seen.add(sum);
+                n=sum;
+            }
+        }
+        return true;
+    }
+}
+
+//46
+// https://leetcode.com/problems/contains-duplicate-ii
+//O(N)
+//O(N)
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+         HashMap<Integer,Integer> map = new HashMap<>();
+        
+        for(int i=0;i<nums.length;i++){
+            if(map.containsKey(nums[i])&&Math.abs(i-map.get(nums[i]))<=k){
+                return true;
+            }
+            else{
+                map.put(nums[i],i);
+            }
+        }
+        return false;
+    }
+}
+
+//47
+// https://leetcode.com/problems/longest-consecutive-sequence/
+// O(n)
+// O(n)
+class Solution {
+    public int longestConsecutive(int[] nums) {
+       HashSet<Integer> set = new HashSet<>();
+       for(int n:nums){
+           set.add(n);
+       }
+       int maxStreak = 0;
+       for(int num:set){
+           if(!set.contains(num-1)){
+               int currentStreak = 1;
+               int number = num;
+               while(set.contains(number+1)){
+                   currentStreak++;
+                   number++;
+               }
+             maxStreak = Math.max(maxStreak,currentStreak);  
+           }
+       }
+       return maxStreak;
+    }
+}
+
+// 48
+// https://leetcode.com/problems/summary-ranges/
+// O(N)
+// O(1)
+class Solution {
+    public List<String> summaryRanges(int[] nums) {
+        List<String> list = new ArrayList<>();
+        int left=0;
+        int right=0;
+        while(right<nums.length){
+            if(right+1<nums.length && nums[right+1]==nums[right]+1){
+                right++;
+            }else{
+                if (left == right) {
+                    list.add(nums[left] + "");
+            } else {
+                list.add(nums[left] + "->" + nums[right]);
+            }
+            left=right+1;
+            right++;
+            }
+            
+        }
+        return list;
+    }
+}
+
+//49. Interval here i have to work little
+//50. Interval here i have to work little
+
+//51
+// https://leetcode.com/problems/valid-parentheses/
+// O(N)
+// O(N)
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stk = new Stack();
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            if(c=='('||c=='['||c=='{'){
+                stk.push(c);
+            }
+            else{
+                if(stk.isEmpty())return false;
+                if(c==')' && stk.peek()=='(')stk.pop();
+                else if(c==']' && stk.peek()=='[')stk.pop();
+                else if(c=='}' && stk.peek()=='{')stk.pop();
+                else return false;
+            }
+        }
+        return stk.isEmpty();
+    }
+}
