@@ -813,3 +813,116 @@ class Solution {
         return stk.isEmpty();
     }
 }
+
+//52
+// https://leetcode.com/problems/simplify-path/
+//O(N)
+//O(N)
+class Solution {
+    public String simplifyPath(String path) {
+        Stack<String> stk =new Stack();
+        String res = "";
+        for(int i=0;i<path.length();i++){
+            char ch = path.charAt(i);
+            if(ch=='/')continue;
+            String temp = "";
+            while(i<path.length() && path.charAt(i)!='/'){
+                temp+=path.charAt(i)+"";
+                i++;
+            }
+            
+            if(temp.equals("."))continue;
+            else if(temp.equals("..")){
+                if(!stk.isEmpty()){
+                    stk.pop();
+                }
+                continue;
+            }
+            else{
+            
+                stk.push(temp);
+            }
+        }
+        while(!stk.isEmpty()){
+            res = "/"+stk.peek()+res;
+            stk.pop();
+        }
+        if(res.length()==0)return "/";
+        return res;
+        
+    }
+}
+
+//53
+// https://leetcode.com/problems/min-stack/
+// O(N)
+// O(N)
+class MinStack {
+    ArrayList<Integer> list = new ArrayList<>();
+    public MinStack() {
+        
+    }
+    
+    public void push(int val) {
+        list.add(val);
+    }
+    
+    public void pop() {
+        list.remove(list.size()-1);
+    }
+    
+    public int top() {
+      int top =  list.get(list.size()-1);
+      return top;
+    }
+    
+    public int getMin() {
+        int min = Integer.MAX_VALUE;
+        for(int i=0;i<list.size();i++){
+            if(min>list.get(i)){
+                min = list.get(i);
+            }
+        }
+        return min;
+        
+    }
+}
+
+//54
+//https://leetcode.com/problems/evaluate-reverse-polish-notation/
+// O(N)
+// O(N)
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Stack<Integer> stk = new Stack();
+        for(String tok:tokens){
+            if(tok.equals("+")){
+                int n1 = stk.pop();
+                int n2 = stk.pop();
+                int res = n1+n2;
+                stk.push(res);
+            }
+            else if(tok.equals("-")){
+                int n1 = stk.pop();
+                int n2 = stk.pop();
+                int res = n2-n1;
+                stk.push(res);
+            }
+            else if(tok.equals("*")){
+                int n1 = stk.pop();
+                int n2 = stk.pop();
+                int res = n1*n2;
+                stk.push(res);
+            }
+            else if(tok.equals("/")){
+                int n1 = stk.pop();
+                int n2 = stk.pop();
+                int res = n2/n1;
+                stk.push(res);
+            }else{
+                stk.push(Integer.parseInt(tok));
+            }
+        }
+        return stk.pop();
+    }
+}
