@@ -926,3 +926,166 @@ class Solution {
         return stk.pop();
     }
 }
+
+//55 Hard
+
+//56
+//  https://leetcode.com/problems/linked-list-cycle/
+//  O(N)
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+       ListNode slow = head;
+       ListNode fast = head;
+       while(fast!=null && fast.next!=null){
+           slow = slow.next;
+           fast = fast.next.next;
+           if(slow==fast)return true;
+       } 
+       return false;
+    }
+}
+//57
+//  https://leetcode.com/problems/add-two-numbers/submissions
+// O(N)
+// O(N)
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode();
+        ListNode temp = dummy;
+        int carry = 0;
+         while(l1!=null ||l2!=null||carry == 1){
+            int sum = 0;
+            if(l1!=null){
+                sum+=l1.val;
+                l1=l1.next;
+            }
+            if(l2!=null){
+                sum+=l2.val;
+                l2=l2.next;
+            }
+            sum+=carry;
+            carry =sum/10;
+            ListNode node = new ListNode(sum%10);
+            temp.next = node;
+            temp=temp.next;
+        }
+        return dummy.next;
+    }
+}
+
+//58
+//  https://leetcode.com/problems/merge-two-sorted-lists/
+// O(N)
+// O(N)
+class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode ptr1 = list1;
+        ListNode ptr2 = list2;
+        ListNode dummy = new ListNode();
+        ListNode temp = dummy;
+        while(ptr1!=null && ptr2!=null){
+            if(ptr1.val<=ptr2.val){
+                temp.next = ptr1;
+                ptr1=ptr1.next;
+            }else{
+                temp.next = ptr2;
+                ptr2=ptr2.next;
+            }
+            temp =temp.next;
+
+        }
+        if(ptr1==null){
+            temp.next = ptr2;
+        }
+        if(ptr2==null){
+            temp.next = ptr1;
+        }
+
+        return dummy.next;
+    }
+}
+
+//59 Reverse linked list do later Important question
+
+//60 Hard;
+
+// 61
+//  https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+//  O(N)
+//  O(N)
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode start = new ListNode();
+        start.next = head;
+        ListNode slow = start;
+        ListNode fast = start;
+
+        for(int i=1;i<=n;i++){
+            fast = fast.next;
+        }
+
+        while(fast.next!=null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        slow.next = slow.next.next;
+        return start.next;
+    }
+}
+
+//62
+//  https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
+// O(N)
+// O(1)
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode dummy = new ListNode();
+        ListNode prev = dummy;
+        dummy.next = head;
+        while(head!=null){
+            if(head.next!=null && head.val == head.next.val){
+                while(head.next!=null && head.val == head.next.val){
+                    head = head.next;
+                }
+                prev.next = head.next;
+            }else{
+                prev = prev.next;
+            }
+            head = head.next;
+        }
+        return dummy.next;
+    }
+}
+
+//  63
+//  https://leetcode.com/problems/rotate-list/
+//  O(N)
+//  O(1)
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || k == 0) {
+            return head;
+        }
+        ListNode last = head;
+        int count = 1;
+        while(last.next!=null){
+            count++;
+            last = last.next;
+        }
+        k = k % count; 
+        if (k == 0) {
+            return head; // No rotation needed
+        }
+
+        last.next = head;
+        int rotate_value = count - k;
+        ListNode end = head;
+        ListNode newHead = head;
+        for(int i=0;i<rotate_value-1;i++){
+            end = end.next;
+        }
+        newHead = end.next;
+        end.next = null;
+        return newHead;
+    }
+}
