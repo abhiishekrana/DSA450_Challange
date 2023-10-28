@@ -1089,3 +1089,82 @@ class Solution {
         return newHead;
     }
 }
+
+//64
+// https://leetcode.com/problems/partition-list/
+// O(n)
+class Solution {
+    public ListNode partition(ListNode head, int x) {
+        ListNode small = new ListNode();
+        ListNode higher = new ListNode();
+        ListNode smallHead = small;
+        ListNode higherHead = higher;
+
+        while(head!=null){
+            if(head.val<x){
+                smallHead.next = head;
+                smallHead = smallHead.next;
+            }else{
+                higherHead.next = head;
+                higherHead = higherHead.next;
+            }
+            head = head.next;
+        }
+        higherHead.next = null;
+        smallHead.next = higher.next;
+        
+        return small.next;
+    }
+}
+
+//65 WILL DO LATER, LRU CACHE
+
+//66
+//  https://leetcode.com/problems/same-tree/
+// O(N)
+// O(N)
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p==null && q==null)return true;
+        if(p==null || q==null)return false;
+        if(p.val!=q.val)return false;
+        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+    }
+}
+
+//67
+//  https://leetcode.com/problems/invert-binary-tree/
+//O(N)
+//O(login)
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if(root == null){
+            return root;
+        }
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
+    }
+}
+
+//68
+//O(H)
+//  O(N)
+ //Symmtric Tree
+//  https://leetcode.com/problems/symmetric-tree/
+
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+       //we can using mirror image concept
+       return isMirror(root,root);
+    }
+
+    private boolean isMirror(TreeNode left,TreeNode right){
+        if(left==null && right==null)return true;
+        if(left==null || right==null)return false;
+        return (left.val==right.val) && isMirror(left.left,right.right) && isMirror(left.right,right.left);
+    }
+}
