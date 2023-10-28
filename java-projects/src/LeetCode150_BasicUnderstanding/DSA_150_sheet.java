@@ -1168,3 +1168,36 @@ class Solution {
         return (left.val==right.val) && isMirror(left.left,right.right) && isMirror(left.right,right.left);
     }
 }
+
+//68.Construct a Binary Tree from PreOrder and InOrder
+//69.Construct a Binary Tree from InOrder and PostOrder
+
+//70
+// https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
+// O(N)
+// O(N)
+class Solution {
+    public Node connect(Node root) {
+       if(root==null)return root;
+       Queue<Node> queue = new LinkedList<>();
+       queue.offer(root);
+       while(!queue.isEmpty()){
+           Node pre = null;
+           int size = queue.size();
+           while(size-->0){
+           Node curr = queue.poll();
+           if(curr.left!=null){
+               queue.offer(curr.left);
+           }
+           if(curr.right!=null){
+               queue.offer(curr.right);
+           }
+           if(pre!=null){
+               pre.next =curr;
+           }
+           pre =curr;
+       }
+       }
+       return root;
+    }
+}
