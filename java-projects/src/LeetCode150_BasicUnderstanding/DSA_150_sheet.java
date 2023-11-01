@@ -1201,3 +1201,104 @@ class Solution {
        return root;
     }
 }
+
+//71
+ //https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
+//  O(N)
+class Solution {
+    public void flatten(TreeNode root) {
+       TreeNode currNode = root;
+       while(currNode!=null){
+           if(currNode.left!=null){
+               TreeNode temp = currNode.left;
+               while(temp.right!=null){
+                   temp=temp.right;
+               }
+               temp.right = currNode.right;
+               currNode.right=currNode.left;
+               currNode.left = null;
+
+           }
+           currNode = currNode.right;
+       } 
+    //    
+    }
+}
+
+//  72
+//  https://leetcode.com/problems/path-sum/
+//O(N)
+class Solution {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root==null)return false;
+        if(root.left==null && root.right==null && targetSum-root.val==0)return true;
+        return hasPathSum(root.left,targetSum-root.val)||hasPathSum(root.right,targetSum-root.val);
+    }
+}
+
+//73
+//  https://leetcode.com/problems/sum-root-to-leaf-numbers/
+//O(N)
+class Solution {
+    public int sumNumbers(TreeNode root) {
+        return helper(root,0);
+    }
+    int helper(TreeNode root,int sum){
+        if(root==null)return 0;
+        sum=sum*10+root.val;
+        if(root.left==null&&root.right==null){
+            return sum;
+        }
+        return helper(root.left,sum)+helper(root.right,sum);
+    }
+}
+
+//  74
+//https://leetcode.com/problems/count-complete-tree-nodes/
+//O(N)
+class Solution {
+    public int countNodes(TreeNode root) {
+        if(root==null)return 0;
+        int L = countNodes(root.left);
+        int R = countNodes(root.right);
+        return L+R+1;
+    }
+}
+
+//75
+ //https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+ //O(n)
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root==null)return null;
+        if(root==p || root==q)return root;
+        TreeNode left = lowestCommonAncestor(root.left,p,q);
+        TreeNode right = lowestCommonAncestor(root.right,p,q);
+        if(left!=null && right==null)return left;
+        if(right!=null && left==null)return right;
+        if(left!=null && right!=null)return root;
+        return null;
+    }
+}
+
+//76
+ //https://leetcode.com/problems/binary-tree-right-side-view/
+ //O(N)
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Helper(result,root,0);
+        return result;
+
+    }
+    public void Helper(List<Integer> result,TreeNode root,int level){
+        if(root==null)return;
+        if(result.size()==level){
+            result.add(root.val);
+        }
+        Helper(result,root.right,level+1);
+        Helper(result,root.left,level+1);
+        
+
+    }
+}
