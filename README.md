@@ -1,79 +1,63 @@
-# Leetcode Patterns [![github-pages](https://github.com/seanprashad/leetcode-patterns/actions/workflows/github-pages.yml/badge.svg)](https://github.com/seanprashad/leetcode-patterns/actions/workflows/github-pages.yml) [![run-cron](https://github.com/seanprashad/leetcode-patterns/actions/workflows/run-cron.yml/badge.svg)](https://github.com/seanprashad/leetcode-patterns/actions/workflows/run-cron.yml)
+# PLACEMENT PREPARATION
+A Complete Resource Book for Interview Preparation.
 
-## Table of Contents
+# DATA STRUCTURES ALGORITHM LEARNING
 
-- [Background](#background)
-- [Fundamentals](#fundamentals)
-- [Notes](#notes)
-- [Question List](#question-list)
-- [Solutions](#solutions)
-- [Suggestions](#suggestions)
-- [Acknowledgements](#acknowledgements)
+- Step I : Read [**Let us C - Yashavant Kanetkar**](https://github.com/inofficialamanjha/Interview-Preparation/blob/main/DS-Algo%20Learning/Let%20Us%20C.pdf)
+- Step II : Fully follow and complete ( With Assignments ) one of the above C++ Course
+- Step III : Complete Left-Over topics from GeeksForGeeks and Youtube, Refer the [**Programming Syllabus**](https://github.com/inofficialamanjha/Interview-Preparation/blob/main/DS-Algo%20Learning/Syllabus%20for%20Programming.pdf).
 
-## Background
+**Course Recommendations**
+- [**Coding Blocks**](https://online.codingblocks.com/courses/c-plus-plus-online-course-for-beginners)
+- [**Coding Ninjas**](https://www.codingninjas.com/courses/onlline-c-plus-plus-course)
+- [**Algo Expert**](https://www.algoexpert.io/product)
+- [**Apna College - Aman Dhattarwal C++ Course**](https://youtube.com/playlist?list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ) ( If money is an issue )
 
-This repo is intended for any individual wanting to improve their problem
-solving skills for software engineering interviews.
 
-Problems are grouped under their respective subtopic, in order to focus on
-repeatedly applying common patterns rather than randomly tackling questions.
+# DATA STRUCTURE ALGOTIHM PRACTICE
 
-All questions are available on [leetcode.com] with some requiring [leetcode premium].
+- Step I : Solve [**Love Babbars's**](https://www.youtube.com/channel/UCQHLxxBFrbfdrk1jF0moTpw) [**450 Cracker Sheet**](https://github.com/inofficialamanjha/Interview-Preparation/blob/main/DS-Algo%20Practice/450%20Cracker%20Sheet.xlsx) ( 450 Questions Set )
+- Step II : Striver's [**150 Cracker Sheet**](https://github.com/inofficialamanjha/Interview-Preparation/blob/main/DS-Algo%20Practice/150%20Cracker%20Sheet.pdf) ( Can Skips Step I if there is shortage of Time )
+- Step III : Striver's [**Competetive Programming List**](https://github.com/inofficialamanjha/Interview-Preparation/blob/main/DS-Algo%20Practice/Striver's%20CP%20List.pdf)
 
-## Fundamentals
 
-To find the greatest amount of success when practicing, it is highly recommended
-to know the methods and runtimes of the following data structures and their
-operations:
+# COMPANY WISE PRACTICE
 
-- Arrays
-- Maps
-- Linked Lists
-- Queues
-- Heaps
-- Stacks
-- Trees
-- Graphs
+All questions can be found on [**Leetcode**](https://leetcode.com/). The [**directory**](https://github.com/inofficialamanjha/Interview-Preparation/tree/main/Company%20Wise%20Practice) contains the name of questions according to the company.
 
-In addition, you should have a good grasp on common algorithms such as:
 
-- Breadth-first search
-- Depth-first search
-- Binary search
-- Recursion
+# OTHER SUBJECTS FOCUS
 
-## Notes
+**Object Oriented Programming ( OOPs )** : 
+- [**OOP's C++ by Balaguruswami**](https://github.com/inofficialamanjha/Interview-Preparation/blob/main/Other%20Subjects/OOPs%20C%2B%2B%20Balaguruswami.pdf)
+- [**Freecodecamp's OOPs Class**](https://www.youtube.com/watch?v=wN0x9eZLix4)
 
-[This pdf] contains information for the main data structures in Java.
+**Operating Systems (OS)** : [**Gate Smasher's Operating System Playlist**](https://youtube.com/playlist?list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p)
 
-Other useful methods to know include [`substring()`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#substring-int-int-), [`toCharArray()`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toCharArray--), [`Math.max()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#max-int-int-),
-[`Math.min()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#min-int-int-), and [`Arrays.fill()`](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#fill-int:A-int-).
+**Computer Networks (CN)** : [**Gate Smasher's Computer Networks Playlist**](https://youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_)
 
-## Question List
+**Database Management Systems (DBMS)**  : [**Gate Smasher's DBMS Playlist**](https://youtube.com/playlist?list=PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y)
 
-The entire question list can be found here:
-https://seanprashad.com/leetcode-patterns/.
+**SQL** : [**Interview Bit**](https://www.interviewbit.com/sql-interview-questions/) [**SQL Sheet**](https://github.com/inofficialamanjha/Interview-Preparation/blob/main/Other%20Subjects/SQL%20Cheat%20Sheet.pdf)
 
-## Solutions
+**Computer Organization & Architecture (COA)** : [**Gate Smasher's COA Playlist**](https://youtube.com/playlist?list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX)
 
-Solutions written in Java can be found in the [solutions] branch.
+**Compiler Design (CD)** : [**Gate Smasher's CD Playlist**](https://youtube.com/playlist?list=PLxCzCOWd7aiEKtKSIHYusizkESC42diyc)
 
-## Suggestions
 
-Think a question should/shouldn't be included? Wish there was another feature?
-Feel free to open an [issue] with your suggestion!
+# OTHER IMPORTANT TIPS
 
-## Acknowledgements
+- [**How to Crack Google Summer of Code ( GSoC )**](https://youtu.be/FLqwaB2VeG8)
+- [**How to Score a 10 CGPA**](https://youtu.be/6S56dYeMWZE)
+- [**Crack Software Developer Placement for Non-Coding Branch**](https://youtu.be/6S56dYeMWZE)
+- [**On-Campus Vs. Off-Campus Placement Detailed Overview**](https://youtu.be/Ic59WTZtp_Q)
+- [**International Placement ( Amazon Berlin )**](https://youtu.be/ofDdyaOyzC4)
+- [**Make your Resume / CV**](https://youtu.be/YzE7uPfQ4yo)
+- [**Non-Tech Opportunites**](https://youtu.be/vsyUxqhoo14)
 
-This list is heavily inspired from [Grokking the Coding Interview] with
-additional problems extracted from the [Blind 75 list] and this hackernoon article
-on [14 patterns to ace any coding interview question].
+## JOIN SKILLZERA
 
-[leetcode.com]: https://leetcode.com
-[leetcode premium]: https://leetcode.com/subscribe/
-[this pdf]: https://drive.google.com/open?id=1ao4ZA28zzBttDkuS6MLQI52gDs_CJZEm
-[solutions]: https://github.com/SeanPrashad/leetcode-patterns/tree/solutions
-[grokking the coding interview]: https://www.educative.io/courses/grokking-the-coding-interview
-[issue]: https://github.com/SeanPrashad/leetcode-patterns/issues/new
-[blind 75 list]: https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU?utm_source=share&utm_medium=ios_app
-[14 patterns to ace any coding interview question]: https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+[**Skillzera**](http://skillzera.tech/) by [**Xero Technologies**](https://xeroed.tech/) is a Community that provides upcoming professionals with access to education infrastructure and career opportunities that enrich lives and builds professional success.
+
+- [**WhatsApp Community Link**](https://chat.whatsapp.com/CtmDIXlSGzV0BCeUV7uk38)
+- [**YouTube Channel**](https://www.youtube.com/channel/UCIPBWRR0iBO7JAl96eJPRpQ)
