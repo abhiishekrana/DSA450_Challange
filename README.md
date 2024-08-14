@@ -12,6 +12,7 @@ A Complete Resource Book for Interview Preparation.
 - [**Coding Ninjas**](https://www.codingninjas.com/courses/onlline-c-plus-plus-course)
 - [**Algo Expert**](https://www.algoexpert.io/product)
 - [**Apna College - Aman Dhattarwal C++ Course**](https://youtube.com/playlist?list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ) ( If money is an issue )
+- Notes https://docs.google.com/document/d/1uv9EdLaG9TK7iNcMneLeEaChzvmXU9Xu_Uv5iZwswFk/edit
 
 
 # DATA STRUCTURE ALGOTIHM PRACTICE
